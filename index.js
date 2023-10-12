@@ -60,18 +60,17 @@ function writeToFile(data) {
 }
 
 function genReadme(res) {
-  return `# ${res.title}
-  
+  return ` ${generateMarkdown(res)}
   ## Table of Contents
-  [Description](#Description)
+  [Description](#description)
 
-  [Installation](#Installation)
+  [Installation](#installation)
   
-  [Usage](#Usage)
+  [Usage](#usage)
   
-  [License](#License)
+  [License](#license)
 
-  [Questions](#Questions)
+  [Questions](#questions)
 
   ## Description
   ${res.description}
@@ -84,7 +83,9 @@ function genReadme(res) {
   
   ${res.usage}
   
-  ${generateMarkdown(res)}
+  ## License
+
+  ${res.license}
 
   ## Questions 
 
