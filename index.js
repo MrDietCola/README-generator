@@ -28,7 +28,7 @@ const questions = [
   {
     type: 'checkbox',
     message: 'What license did you use?',
-    choices: ['MIT', 'n/a'],
+    choices: ['MIT', 'Boost', 'n/a'],
     name: 'license',
   },
   {
@@ -84,9 +84,7 @@ function genReadme(res) {
   
   ${res.usage}
   
-  ## License
-  
-  ${res.license}
+  ${generateMarkdown(res)}
 
   ## Questions 
 
