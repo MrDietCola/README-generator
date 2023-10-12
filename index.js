@@ -7,7 +7,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js')
 const questions = [
   {
     type: 'input',
-    message: 'What is the title of your project',
+    message: 'What is the title of your project?',
     name: 'title',
   },
   {
@@ -26,8 +26,9 @@ const questions = [
     name: 'usage',
   },
   {
-    type: 'text',
+    type: 'checkbox',
     message: 'What license did you use?',
+    choices: ['MIT', 'n/a'],
     name: 'license',
   },
   {
@@ -42,14 +43,57 @@ const questions = [
   },
   {
     type: 'text',
-    message: 'Questions',
+    message: 'Enter Github Username',
     name: 'questions',
+  },
+  {
+    type: 'text',
+    message: 'Enter Email',
+    name: 'email',
   },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName)
+function writeToFile(data) {
+  fs.writeFile(`${data.title}.md`, genReadme(data), (err) => 
+    err ? console.error(err) : console.log('success!'))
+}
+
+function genReadme(res) {
+  return `# ${res.title}
+  
+  ## Table of Contents
+  [Description](#Description)
+
+  [Installation](#Installation)
+  
+  [Usage](#Usage)
+  
+  [License](#License)
+
+  [Questions](#Questions)
+
+  ## Description
+  ${res.description}
+  
+  ## Installation
+  
+  ${res.installation}
+  
+  ## Usage
+  
+  ${res.usage}
+  
+  ## License
+  
+  ${res.license}
+
+  ## Questions 
+
+  https://github.com/${res.questions}
+
+  For more questions, you can reach me at ${res.email}
+  `
 }
 
 // TODO: Create a function to initialize app
@@ -57,32 +101,7 @@ function init() {
   inquirer
   .prompt(questions)
   .then((response) =>
-    fs.writeFile('index.html', genHtmljs(response), (err) => 
-    err ? console.error(err) : console.log('success!')))
+    writeToFile(response))
 }
-
 // Function call to initialize app
 init();
-
-
-function genReadme(res) {
-  return `# Challenge-5_Event-planner
-
-  ## Description
-  ${res.description}
-
-  ![screenshot](<Screenshot (13).png>)
-
-  ## Installation
-
- ${res.installation}
-
-  ## Usage
-
-  ${res.usage}
-
-  ## License
-
-  ${res.license}
-`
-}
