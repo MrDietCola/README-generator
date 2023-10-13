@@ -28,7 +28,7 @@ const questions = [
   {
     type: 'checkbox',
     message: 'What license did you use?',
-    choices: ['MIT', 'Boost', 'n/a'],
+    choices: ['MIT', 'Boost', 'Apache', 'IBM', 'n/a'],
     name: 'license',
   },
   {
@@ -86,6 +86,14 @@ function genReadme(res) {
   ## License
 
   ${res.license}
+
+  ## Contributions
+
+  ${res.contributions}
+
+  ## Tests
+
+  ${res.tests}
 
   ## Questions 
 
