@@ -1,7 +1,9 @@
+// Import necessary modules
 const fs = require('fs')
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
+// Array of questions for user input
 const questions = [
   {
     type: 'input',
@@ -51,11 +53,13 @@ const questions = [
   },
 ];
 
+// Function to write the generated markdown to a file
 function writeToFile(data) {
   fs.writeFile(`./dist/${data.title}.md`, genReadme(data), (err) => 
     err ? console.error(err) : console.log('success!'))
 }
 
+// Function to generate the markdown based on user responses
 function genReadme(res) {
   return ` ${generateMarkdown(res)}
   ## Table of Contents
@@ -104,12 +108,13 @@ function genReadme(res) {
   `
 }
 
-// TODO: Create a function to initialize app
+// Initialize the application using Inquirer.js
 function init() {
   inquirer
   .prompt(questions)
   .then((response) =>
     writeToFile(response))
 }
+
 // Function call to initialize app
 init();
