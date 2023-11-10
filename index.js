@@ -70,6 +70,10 @@ function genReadme(res) {
   
   [License](#license)
 
+  [Contributions](#contributions)
+  
+  [Tests](#tests)
+
   [Questions](#questions)
 
   ## Description

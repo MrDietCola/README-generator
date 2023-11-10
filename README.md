@@ -7,6 +7,8 @@ This is a README generator that takes user input and information about their pro
 
 ![Alt text](<assets/images/Screenshot (17).png>)
 
+https://www.youtube.com/watch?v=u2nEM3N6VOE&ab_channel=AJSeidler
+
 ## Installation
 
 N/A
