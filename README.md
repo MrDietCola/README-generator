@@ -1,6 +1,6 @@
 # README-generator
 
-https://github.com/MrDietCola/README-generator
+https://github.com/Seidler93/README-generator
 
 ## Description
 This is a README generator that takes user input and information about their project and then creates a professional readme for their project. 
